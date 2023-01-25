@@ -20,7 +20,7 @@ import { CommonService } from './common.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriasService {
+export class CategoriesService {
 
   private categoriesCollection: CollectionReference<DocumentData>;
 

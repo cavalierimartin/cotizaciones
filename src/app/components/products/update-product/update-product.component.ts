@@ -6,7 +6,7 @@ import { Categoria } from 'src/app/models/categoria';
 import { Material } from 'src/app/models/material';
 // import { MeasureUnits } from 'src/app/models/MeasureUnits';
 import { Product } from 'src/app/models/producto';
-import { CategoriasService } from 'src/app/services/categories.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 import { MaterialsService } from 'src/app/services/materials.service';
 import { ProductsService } from 'src/app/services/products.service';
 import { UnitsService } from 'src/app/services/units.service';
@@ -60,7 +60,7 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private categoriesService: CategoriasService,
+    private categoriesService: CategoriesService,
     private productService: ProductsService,
     private materialsService: MaterialsService,
     private unitsService: UnitsService

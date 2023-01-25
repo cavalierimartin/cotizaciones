@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CategoriasService } from 'src/app/services/categories.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 
 @Component({
   selector: 'app-update-category',
@@ -23,7 +23,7 @@ export class UpdateCategoryComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private categoriesService: CategoriasService
+    private categoriesService: CategoriesService
   ) {
     this.categoryId = this.route.snapshot.params['categoryId'];
     this.action = 'create';
