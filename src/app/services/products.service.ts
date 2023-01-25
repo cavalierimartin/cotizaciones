@@ -24,18 +24,28 @@ export class ProductsService {
       )
       .pipe(retry(1), catchError(this.commonService.handleError));
   }
-  getProductById(id: string): Observable<Product> {
+  getProductById(id: string): Observable<Product | undefined> {
+
+    return this.angularFirestore.doc<Product>(`product/${id}`).valueChanges();
+
+
+    // return this.angularFirestore
+    //   .collection<T>(path)
+    //   .valueChanges()
+    //   .pipe(catchError(this.handleError));
+
     return this.http
       .get<Product>(this.commonService.apiURL + '/productos/' + id)
       .pipe(retry(1), catchError(this.commonService.handleError));
   }
 
-  getAllProducts(): Observable<any[]> {
-    return this.angularFirestore.collection('productos').valueChanges();
+  getAllProducts(): Observable<Product[]> {
+    return this.commonService.getAllTStream<Product>('productos');
+    // return this.angularFirestore.collection<Product>('productos').valueChanges();
 
-    return this.http
-      .get<[Product]>(this.commonService.apiURL + '/productos')
-      .pipe(retry(1), catchError(this.commonService.handleError));
+    // return this.http
+    //   .get<[Product]>(this.commonService.apiURL + '/productos')
+    //   .pipe(retry(1), catchError(this.commonService.handleError));
   }
 
   updateProduct(product: Product) {

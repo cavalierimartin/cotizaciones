@@ -1,0 +1,9 @@
+<form [formGroup]="updateCategoryForm" (ngSubmit)="updateCategory()">
+  <div>
+    <label for="nombre">
+      Nombre
+    </label>
+    <input formControlName="nombre" type="text" />
+  </div>
+  <button type="submit" [disabled]="!updateCategoryForm.valid">{{ action === 'update' ? 'Actualizar':'Crear' }}</button>
+</form>

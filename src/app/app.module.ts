@@ -39,6 +39,13 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthService } from './services/auth.service';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { CategoriesListComponent } from './components/categories/categories-list/categories-list.component';
+import { UpdateCategoryComponent } from './components/categories/update-category/update-category.component';
+import { CategoryCardComponent } from './components/categories/category-card/category-card.component';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+
 
 @NgModule({
   declarations: [
@@ -64,6 +71,9 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     SignInComponent,
+    CategoriesListComponent,
+    UpdateCategoryComponent,
+    CategoryCardComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +85,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
